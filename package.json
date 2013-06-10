@@ -1,7 +1,8 @@
 {
   "name": "connect-leveldb",
   "version": "0.1.0",
-  "description": "This module provides a session store for connect which uses leveldb.",
+  "description": "This module provides a session store for connect which uses leveldb via levelup.",
+  "homepage": "https://github.com/wolfeidau/connect-leveldb",
   "main": "index.js",
   "scripts": {
     "test": "make test"
@@ -12,7 +13,9 @@
   },
   "keywords": [
     "leveldb",
-    "connect"
+    "levelup",
+    "connect",
+    "sessions"
   ],
   "author": "Mark Wolfe <mark@wolfe.id.au> (http://www.wolfe.id.au)",
   "license": "MIT",
