@@ -1,0 +1,29 @@
+{
+  "name": "connect-leveldb",
+  "version": "0.1.0",
+  "description": "This module provides a session store for connect which uses leveldb.",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wolfeidau/connect-leveldb.git"
+  },
+  "keywords": [
+    "leveldb",
+    "connect"
+  ],
+  "author": "Mark Wolfe <mark@wolfe.id.au> (http://www.wolfe.id.au)",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "~1.9.0",
+    "sinon": "~1.6.0",
+    "chai": "~1.5.0"
+  },
+  "dependencies": {
+    "debug": "~0.7.2",
+    "level": "~0.9.0",
+    "connect": "~2.7.11"
+  }
+}

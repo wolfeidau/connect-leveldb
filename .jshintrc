@@ -1,0 +1,8 @@
+{
+  "node" : true,
+  "strict": false,
+  "laxcomma": true,
+  "curly": false,
+  "asi":true,
+  "laxbreak": true
+}
