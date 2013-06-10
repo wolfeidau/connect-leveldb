@@ -42,7 +42,6 @@ describe('Connect Leveldb', function () {
     store.destroy(123, function (err) {
       expect(err).to.not.exist
       done()
-//      store.db.close(done)
     })
   })
 

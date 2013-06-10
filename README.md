@@ -1,6 +1,9 @@
 # connect-leveldb
 
-This module provides a session store for connect which uses leveldb.
+This module provides a session store for connect which uses leveldb and is heavily based on
+the [connect-redis](https://github.com/visionmedia/connect-redis) module.
+
+
 
 # Installation
 
@@ -30,8 +33,14 @@ connect()
 Express users.
 
 ```
-var RedisStore = require('connect-leveldb')(express)
+var LeveldbStore = require('connect-leveldb')(express)
 ```
+
+# Things to Note
+
+This module uses a lazy deletion model which means it will only clean up sessions IF a user access the
+site after they expire. It is primarily designed for use on sites with users who regularly revisit the
+site for updates.
 
 # Licence
 
