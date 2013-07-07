@@ -8,19 +8,28 @@ var store;
 
 describe('Connect Leveldb', function () {
 
+  var clock;
+
   before(function (done) {
+    var currentTime = new Date().getTime()
+    clock = sinon.useFakeTimers(currentTime)
     store = new LeveldbStore({dbLocation: './myDb'})
       .on('connect', function () {
         done()
       })
   })
 
+  after(function () {
+    clock.restore()
+  })
+
+
   it('should be open', function () {
     expect(store.db.isOpen()).to.be.true
   })
 
   it('should persist a session successfully', function (done) {
-    store.set('123', { cookie: { maxAge: 2000 }, name: 'wolfeidau' }, function (err, ok) {
+    store.set('123', { cookie: { maxAge: 1000 }, name: 'wolfeidau' }, function (err, ok) {
       expect(err).to.not.exist
       expect(ok).to.be.true
       done()
@@ -31,7 +40,7 @@ describe('Connect Leveldb', function () {
 
     store.get('123', function (err, value) {
       expect(err).to.not.exist
-      expect(value.cookie.maxAge).to.equal(2000)
+      expect(value.cookie.maxAge).to.equal(1000)
       expect(value.name).to.equal('wolfeidau')
       done()
     })
@@ -48,18 +57,6 @@ describe('Connect Leveldb', function () {
 
   describe('Session Expiry', function () {
 
-    var clock;
-
-    beforeEach(function(){
-      var currentTime = new Date().getTime()
-      clock = sinon.useFakeTimers(currentTime)
-    })
-
-    afterEach(function () {
-      clock.restore()
-    })
-
-
     it('should expire persisted sessions', function (done) {
 
       function doGet(){
@@ -71,7 +68,7 @@ describe('Connect Leveldb', function () {
         })
       }
 
-      store.set('456', { cookie: { maxAge: 2000 }, name: 'wolfeidau' }, function (err, ok) {
+      store.set('456', { cookie: { maxAge: 1000 }, name: 'wolfeidau' }, function (err, ok) {
         expect(err).to.not.exist
         expect(ok).to.be.true
         doGet()
