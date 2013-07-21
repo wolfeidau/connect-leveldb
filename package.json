@@ -1,6 +1,6 @@
 {
   "name": "connect-leveldb",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "This module provides a session store for connect which uses leveldb via levelup.",
   "homepage": "https://github.com/wolfeidau/connect-leveldb",
   "main": "index.js",
