@@ -2,6 +2,8 @@
 
 var connect = require('connect')
 var sinon = require('sinon')
+var debug = require('debug')('test:connect:leveldb')
+
 var LeveldbStore = require('../index.js')(connect)
 
 var expect = require('chai').expect
@@ -31,7 +33,7 @@ describe('Connect Leveldb', function () {
   })
 
   it('should persist a session successfully', function (done) {
-    store.set('123', { cookie: { maxAge: 1000 }, name: 'wolfeidau' }, function (err, ok) {
+    store.set('123', { cookie: { maxAge: 1 }, name: 'wolfeidau' }, function (err, ok) {
       expect(err).to.not.exist
       expect(ok).to.be.true
       done()
@@ -42,7 +44,7 @@ describe('Connect Leveldb', function () {
 
     store.get('123', function (err, value) {
       expect(err).to.not.exist
-      expect(value.cookie.maxAge).to.equal(1000)
+      expect(value.cookie.maxAge).to.equal(1)
       expect(value.name).to.equal('wolfeidau')
       done()
     })
@@ -62,15 +64,17 @@ describe('Connect Leveldb', function () {
     it('should expire persisted sessions', function (done) {
 
       function doGet(){
+        debug('date', String(Date.now()))
         clock.tick(2001)
         store.get('456', function (err, value) {
+          debug('date', String(Date.now()))
           expect(err).to.not.exist
           expect(value).to.not.exist
           done()
         })
       }
 
-      store.set('456', { cookie: { maxAge: 1000 }, name: 'wolfeidau' }, function (err, ok) {
+      store.set('456', { cookie: { maxAge: 1 }, name: 'wolfeidau' }, function (err, ok) {
         expect(err).to.not.exist
         expect(ok).to.be.true
         doGet()
