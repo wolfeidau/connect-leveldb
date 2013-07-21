@@ -1,8 +1,17 @@
 {
   "node" : true,
-  "strict": false,
+  "strict": true,
   "laxcomma": true,
   "curly": false,
   "asi":true,
-  "laxbreak": true
+  "laxbreak": true,
+  "expr": true,
+  "predef": [
+    "describe",
+    "it",
+    "before",
+    "beforeEach",
+    "after",
+    "afterEach"
+  ]
 }

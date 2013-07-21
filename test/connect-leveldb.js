@@ -1,3 +1,5 @@
+"use strict";
+
 var connect = require('connect')
 var sinon = require('sinon')
 var LeveldbStore = require('../index.js')(connect)
