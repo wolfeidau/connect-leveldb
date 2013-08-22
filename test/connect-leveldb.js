@@ -30,6 +30,10 @@ describe('Connect Leveldb', function () {
     expect(store.db.isOpen()).to.be.true
   })
 
+  it('should have default prefix set', function(){
+    expect(store.prefix).to.equal('session:')
+  })
+
   it('should persist a session successfully', function (done) {
     store.set('123', { cookie: { maxAge: 1000 }, name: 'wolfeidau' }, function (err, ok) {
       expect(err).to.not.exist
@@ -44,6 +48,16 @@ describe('Connect Leveldb', function () {
       expect(err).to.not.exist
       expect(value.cookie.maxAge).to.equal(1000)
       expect(value.name).to.equal('wolfeidau')
+      done()
+    })
+
+  })
+
+  it('should return null on missing session', function (done) {
+
+    store.get('1234', function (err, value) {
+      expect(err).to.not.exist
+      expect(value).to.not.exist
       done()
     })
 
