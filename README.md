@@ -1,5 +1,8 @@
 # connect-leveldb
 
+[![NPM](https://nodei.co/npm/connect-leveldb.png)](https://nodei.co/npm/connect-leveldb/)
+[![NPM](https://nodei.co/npm-dl/connect-leveldb.png)](https://nodei.co/npm/connect-leveldb/)
+
 [![Build Status](https://travis-ci.org/wolfeidau/connect-leveldb.png?branch=master)](https://travis-ci.org/wolfeidau/connect-leveldb)
 
 This module provides a session store for connect which uses leveldb and is heavily based on
