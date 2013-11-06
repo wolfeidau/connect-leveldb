@@ -39,6 +39,16 @@ Express users.
 var LeveldbStore = require('connect-leveldb')(express)
 ```
 
+With Sublevel you need to specify the value encoding:
+
+```
+var LevelUp = require('level');
+var Sublevel = require('level-sublevel');
+var LeveldbStore = require('connect-leveldb')(express);
+var db = Sublevel(LevelUp(__dirname + '/db'));
+var sessions = db.sublevel('sessions', { valueEncoding: 'json' });
+```
+
 # Things to Note
 
 This module uses a lazy deletion model which means it will only clean up sessions IF a user access the
