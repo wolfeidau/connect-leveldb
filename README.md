@@ -36,7 +36,8 @@ connect()
 Express users.
 
 ```
-var LeveldbStore = require('connect-leveldb')(express)
+var session = require('express-session')
+var LeveldbStore = require('connect-leveldb')(session)
 ```
 
 With Sublevel you need to specify the value encoding:
