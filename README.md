@@ -33,15 +33,20 @@ connect()
   .use(connect.session({ store: new LeveldbStore(options), secret: 'keyboard cat' }))
 ```
 
-Express users.
+Express 3.x users
 
 ```
-var LeveldbStore = require('connect-leveldb')(express)
+var express = require('express');
+var LeveldbStore = require('connect-leveldb')(express);
+var app = express();
+app.use(express.cookieParser());
+app.use(express.session({ store: new LeveldbStore({ dbLocation: __dirname + '/db' }), secret: 'keyboard cat' }));
 ```
 
 With Sublevel you need to specify the value encoding:
 
 ```
+var express = require('express');
 var LevelUp = require('level');
 var Sublevel = require('level-sublevel');
 var LeveldbStore = require('connect-leveldb')(express);
