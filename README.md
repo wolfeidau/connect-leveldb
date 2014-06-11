@@ -43,6 +43,18 @@ app.use(express.cookieParser());
 app.use(express.session({ store: new LeveldbStore({ dbLocation: __dirname + '/db' }), secret: 'keyboard cat' }));
 ```
 
+Express 4.x users
+
+```
+var express = require('express');
+var cookieParser = require('cookie-parser')
+var session = require('express-session')
+var LeveldbStore = require('connect-leveldb')(session);
+var app = express();
+app.use(cookieParser());
+app.use(session({ store: new LeveldbStore({ dbLocation: __dirname + '/db' }), secret: 'keyboard cat' }));
+```
+
 With Sublevel you need to specify the value encoding:
 
 ```
