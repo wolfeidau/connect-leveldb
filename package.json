@@ -26,8 +26,8 @@
     "jshint": "~2.1.4"
   },
   "dependencies": {
-    "debug": "~0.7.2",
     "connect": "~2.7.11",
-    "level": "~0.17.0-1"
+    "debug": "~0.7.2",
+    "level": "^0.18.0"
   }
 }
