@@ -28,6 +28,6 @@
   "dependencies": {
     "connect": "~2.7.11",
     "debug": "~0.7.2",
-    "level": "^0.18.0"
+    "level": "^1.4.0"
   }
 }
