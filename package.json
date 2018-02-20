@@ -1,6 +1,6 @@
 {
   "name": "connect-leveldb",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "This module provides a session store for connect which uses leveldb via levelup.",
   "homepage": "https://github.com/wolfeidau/connect-leveldb",
   "main": "index.js",
@@ -20,14 +20,14 @@
   "author": "Mark Wolfe <mark@wolfe.id.au> (http://www.wolfe.id.au)",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "~1.9.0",
-    "sinon": "~1.6.0",
     "chai": "~1.5.0",
-    "jshint": "~2.1.4"
+    "connect": "^2.7.11",
+    "jshint": "~2.1.4",
+    "mocha": "~1.9.0",
+    "sinon": "~1.6.0"
   },
   "dependencies": {
-    "connect": "~2.7.11",
     "debug": "~0.7.2",
-    "level": "^1.4.0"
+    "level": "3.0.0"
   }
 }
