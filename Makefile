@@ -1,10 +1,7 @@
 REPORTER = spec
 
-test: jshint
+test:
 	@NODE_ENV=test ./node_modules/.bin/mocha --recursive --reporter $(REPORTER) --timeout 3000
-
-jshint:
-	./node_modules/.bin/jshint lib test index.js
 
 tests: test
 
@@ -14,4 +11,4 @@ tap:
 unit:
 	@NODE_ENV=test ./node_modules/.bin/mocha --recursive -R xunit > results.xml --timeout 3000
 
-.PHONY: test tap unit jshint
+.PHONY: test tap unit
